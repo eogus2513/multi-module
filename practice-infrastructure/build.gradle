@@ -6,9 +6,6 @@ dependencies {
     //web
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
-    //test
-    implementation 'org.springframework.boot:spring-boot-starter-test'
-
     //multi module
     implementation project(":practice-domain")
 }
