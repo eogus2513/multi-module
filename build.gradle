@@ -1,27 +1,29 @@
-plugins {
-    id 'org.springframework.boot' version '2.7.1'
-    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-    id 'java'
-}
+buildscript {
+    ext {
+        springBootVersion = '2.7.1'
+        dependencyManagementVersion = '1.0.11.RELEASE'
+    }
 
-group = 'com.study'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17'
+    repositories {
+        mavenCentral()
+    }
 
-repositories {
-    mavenCentral()
-}
-
-dependencies {
+    dependencies {
+        dependencies {
+            classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+            classpath "io.spring.gradle:dependency-management-plugin:${dependencyManagementVersion}"
+        }
+    }
 }
 
 subprojects {
+    group = 'com.study'
+    version = '0.0.1-SNAPSHOT'
+
     apply plugin: 'java'
     apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
 
-    group = 'com.study'
-    version = '0.0.1-SNAPSHOT'
     sourceCompatibility = '17'
 
     repositories {
@@ -33,16 +35,12 @@ subprojects {
         annotationProcessor 'org.projectlombok:lombok'
         implementation 'org.springframework.boot:spring-boot-starter-test'
     }
-}
 
-springBoot {
-    mainClass = 'com.study.Application.PracticeApplication'
-}
+    tasks.named('test') {
+        useJUnitPlatform()
+    }
 
-tasks.named('test') {
-    useJUnitPlatform()
-}
-
-jar {
-    enabled = false
+    jar {
+        enabled = false
+    }
 }
