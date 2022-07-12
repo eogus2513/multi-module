@@ -13,5 +13,5 @@ jobs:
         uses: smoothbear/project-tree-action@main
         with:
           message: "🔀 :: Update README.md"
-          email: sdpthf@dsm.hs.kr
-          username: softpeanut
+          email: eogus_2513@dsm.hs.kr
+          username: eogus2513
