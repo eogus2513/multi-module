@@ -15,3 +15,4 @@ jobs:
           message: "🔀 :: Update README.md"
           email: eogus_2513@dsm.hs.kr
           username: eogus2513
+          token: ${{ secrets.GIT_TOKEN }}
